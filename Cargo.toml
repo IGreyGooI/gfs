@@ -1,0 +1,10 @@
+[package]
+name = "gfs"
+version = "0.1.0"
+authors = ["Kikokushi <s468zhan@edu.uwaterloo.ca>"]
+edition = "2018"
+
+[dependencies]
+log = "0.4.6"
+sha2 = "0.8.0"
+util = { path = "../util/"}
