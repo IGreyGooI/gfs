@@ -1,4 +1,4 @@
-extern crate util;
+extern crate utils;
 #[macro_use]
 extern crate log;
 use std::{
@@ -94,7 +94,7 @@ impl GemFileSystem {
         
         match absolute_path.exists() & &absolute_path.is_file() {
             true => {
-                let file_ptr = util::load_file_as_u8(&absolute_path);
+                let file_ptr = utils::load_file_as_u8(&absolute_path);
                 self.cache.store_file(file_path.as_ref().to_path_buf(), file_ptr);
                 // now file_ptr is moved, the ownership is transferred to Cache
                 self.cache.content_map.get(file_path.as_ref())
@@ -120,7 +120,7 @@ impl GemFileSystem {
                 debug!("{}",absolute_path.display());
                 
                 if absolute_path.exists() && absolute_path.is_file() {
-                    let disk_file = util::load_file_as_u8(&absolute_path);
+                    let disk_file = utils::load_file_as_u8(&absolute_path);
                     let disk_file_hash = process_sha256::<Sha256, _>(&mut Cursor::new(disk_file));
                     let cached_file_hash = self.cache.sha2_map.get(file_path.as_ref()).unwrap();
                     let diff_count = disk_file_hash

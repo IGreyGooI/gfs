@@ -7,4 +7,4 @@ edition = "2018"
 [dependencies]
 log = "0.4.6"
 sha2 = "0.8.0"
-util = { path = "../util/"}
+utils = { git = "https://github.com/IGreyGooI/utils" }
