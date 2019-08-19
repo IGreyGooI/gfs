@@ -26,7 +26,7 @@ pub trait ReadFile {
 }
 
 pub trait PathMapper {
-    fn map<P: AsRef<path::Path>>(&mut self, file_name: P) -> Box<path::Path>;
+    fn map<P: AsRef<path::Path>>(&self, file_name: P) -> Box<path::Path>;
 }
 
 impl fmt::Debug for GemFileSystem {
